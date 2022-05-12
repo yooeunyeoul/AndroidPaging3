@@ -1,14 +1,16 @@
 package com.dongeul.pagingsample.data
 
+import java.io.Serializable
 
-sealed class SampleModel(val type: FeedType) {
+
+sealed class SampleModel(val type: FeedType) :Serializable {
     data class Data(
         val idx : Int,
         val existImage: Boolean=false,
         val content: String?=null,
-        val likeCount: Int?=null,
+        var likeCount: Int=0,
         var isLike: Boolean = false,
-        val commentList: List<Comment>,
+        var commentList: List<Comment>,
         val commentUser: String?=null
     ) : SampleModel(FeedType.DATA)
 

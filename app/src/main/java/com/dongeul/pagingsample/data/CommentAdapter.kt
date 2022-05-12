@@ -15,8 +15,7 @@ import com.dongeul.pagingsample.databinding.ItemFeedBinding
 import com.dongeul.pagingsample.databinding.ItemSampleHeaderBinding
 import java.lang.Exception
 
-class CommentAdapter constructor(val commentList : List<Comment>) : PagingDataAdapter<Comment, RecyclerView.ViewHolder>(diffcallback) {
-
+class CommentAdapter constructor(private var commentList: MutableList<Comment> = mutableListOf()) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return commentList.size
@@ -30,21 +29,15 @@ class CommentAdapter constructor(val commentList : List<Comment>) : PagingDataAd
         }
     }
 
+    fun updateComment(commentList : MutableList<Comment>) {
+        this.commentList.clear()
+        this.commentList.addAll(commentList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return CommentViewHolder(ItemCommentBinding.inflate(layoutInflater, parent, false))
-    }
-
-    companion object {
-        private val diffcallback = object : DiffUtil.ItemCallback<Comment>() {
-            override fun areItemsTheSame(oldItem: Comment, newItem: Comment): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: Comment, newItem: Comment): Boolean {
-                return oldItem == newItem
-            }
-        }
     }
 
     inner class CommentViewHolder(

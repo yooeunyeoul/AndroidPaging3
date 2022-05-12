@@ -17,11 +17,10 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-<!--        <argument-->
-<!--            android:name="data"-->
-<!--            app:argType="com.dongeul.pagingsample.data.SampleModel.Data"-->
-<!--            app:nullable="false"-->
-<!--            />-->
+        <argument
+            android:name="data"
+            app:argType="com.dongeul.pagingsample.data.SampleModel"
+            />
     </fragment>
 
     <fragment
@@ -29,10 +28,9 @@
         android:name="com.dongeul.pagingsample.FeedDetailFragment"
         android:label="@string/feedDetail"
         tools:layout="@layout/fragment_feed_detail">
-<!--        <argument-->
-<!--            android:name="data"-->
-<!--            app:argType="com.dongeul.pagingsample.data.SampleModel.Data"-->
-<!--            app:nullable="false"/>-->
+        <argument
+            android:name="data"
+            app:argType="com.dongeul.pagingsample.data.SampleModel" />
     </fragment>
 
 </navigation>

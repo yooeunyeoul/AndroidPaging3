@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="entity"
-            type="com.dongeul.pagingsample.data.SampleModel.Data" />
+            name="vm"
+            type="com.dongeul.pagingsample.PagingViewModel" />
 
     </data>
 
@@ -14,9 +14,35 @@
         android:layout_height="match_parent">
 
         <include
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:id="@+id/includeLayout"
             layout="@layout/item_feed"
-            app:entity="@{entity}" />
+            app:entity="@{vm.feedEntityLiveData}" />
+
+        <EditText
+            android:id="@+id/edtMessage"
+            android:maxLines="1"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSend"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="48dp"/>
+
+        <Button
+            android:text="SEND"
+            android:id="@+id/btnSend"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

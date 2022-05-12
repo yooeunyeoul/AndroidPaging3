@@ -16,6 +16,7 @@ import java.lang.Exception
 
 class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(diffcallback) {
 
+
     lateinit var listener: (SampleModel) -> (Unit)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
@@ -35,6 +36,7 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
             is SampleModel.Data -> DATA
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -77,18 +79,27 @@ class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(di
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: SampleModel.Data) {
             with(binding) {
+                entity = data
                 rootView.setOnClickListener {
                     listener.invoke(data)
                 }
-                tvContent.text = data.content
-                tvLikeCount.text = data.likeCount.toString()
-                ivFeedImg.visibility = if (data.existImage) View.VISIBLE else View.GONE
-                commentListView.adapter = CommentAdapter(data.commentList)
+                ivHeart.setOnClickListener {
+                    with(data) {
+                        if (isLike) {
+                            isLike = false
+                            likeCount -= 1
+                        } else {
+                            isLike = true
+                            likeCount += 1
+                        }
+                    }
+
+                    notifyItemChanged(bindingAdapterPosition)
+                }
+
+                commentListView.adapter = CommentAdapter(data.commentList.toMutableList())
             }
-
-
         }
     }
-
 }
 

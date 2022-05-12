@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import androidx.paging.filter
-import androidx.paging.map
-import com.dongeul.pagingsample.data.FeedType
+import com.dongeul.pagingsample.data.Comment
+import com.dongeul.pagingsample.data.CommentAdapter
 import com.dongeul.pagingsample.data.SampleModel
 import com.dongeul.pagingsample.databinding.FragmentFeedDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,10 +18,11 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FeedDetailFragment : Fragment() {
+    private lateinit var data: SampleModel.Data
     private var _binding: FragmentFeedDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PagingViewModel by activityViewModels()
-//    private val args by navArgs<FeedDetailFragmentArgs>()
+    private val args by navArgs<FeedDetailFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +37,28 @@ class FeedDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-//            val data =args.data
-//            binding.entity = data
+            lifecycleOwner = viewLifecycleOwner
+            with(viewModel) {
+                vm = this
+                data = args.data as SampleModel.Data
+                viewModel.feedEntityLiveData.value = data
+                includeLayout.commentListView.adapter = commentAdapter
+                updateComment()
+            }
 
 
+            btnSend.setOnClickListener {
+                viewModel.updateComment(
+                    Comment(
+                        commentUser = "나",
+                        comment = edtMessage.text.toString()
+                    )
+                )
+                edtMessage.text.clear()
+            }
+            includeLayout.ivHeart.setOnClickListener {
+                viewModel.updateLike()
+            }
         }
 
         lifecycleScope.launch {
