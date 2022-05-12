@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="entity"
+            type="com.dongeul.pagingsample.data.SampleModel.Data" />
+
+        <import type="android.view.View"/>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rootView"
+        app:cardBackgroundColor="#FFEEBD"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:visibility="@{entity.existImage ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/ivFeedImg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/sample"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                     />
+
+                <TextView
+                    android:text="@{entity.content}"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tvContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivFeedImg"
+                    tools:text="샘플 텍스트 입니다." />
+
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/ivHeart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    tools:src="@drawable/ic_heart_24_red_1_fill"
+                    android:src="@{entity.isLike ? @drawable/ic_heart_24_red_1_fill : @drawable/ic_heart_24_black_o_1}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/tvLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="LIKE"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivHeart"
+                    app:layout_constraintStart_toEndOf="@+id/ivHeart"
+                    app:layout_constraintTop_toTopOf="@id/ivHeart" />
+
+                <TextView
+                    android:text="@{String.valueOf(entity.likeCount)}"
+                    android:textColor="@color/black"
+                    android:id="@+id/tvLikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivHeart"
+                    app:layout_constraintStart_toEndOf="@+id/tvLike"
+                    app:layout_constraintTop_toTopOf="@+id/ivHeart"
+                    tools:text="20" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentListView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_comment"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

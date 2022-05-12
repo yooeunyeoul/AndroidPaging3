@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 
@@ -59,4 +60,9 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     implementation "androidx.activity:activity-ktx:$android_ktx_version"
+
+    // navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+
 }
