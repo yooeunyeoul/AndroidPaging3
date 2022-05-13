@@ -64,8 +64,8 @@ class FeedListFragment : Fragment() {
             }
         }
         lifecycleScope.launch {
-            viewModel.pagingData.collectLatest {
-                pagingAdapter.submitData(it)
+            viewModel.pagingData.observe(viewLifecycleOwner) {
+                pagingAdapter.submitData(lifecycle,it)
             }
         }
     }

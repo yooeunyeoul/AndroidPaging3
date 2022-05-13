@@ -61,10 +61,5 @@ class FeedDetailFragment : Fragment() {
             }
         }
 
-        lifecycleScope.launch {
-            viewModel.pagingData.collectLatest {
-
-            }
-        }
     }
 }
