@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample
+package com.dongeul.pagingsample.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.dongeul.pagingsample.data.Comment
-import com.dongeul.pagingsample.data.CommentAdapter
-import com.dongeul.pagingsample.data.SampleModel
 import com.dongeul.pagingsample.databinding.FragmentFeedDetailBinding
+import com.dongeul.pagingsample.model.Comment
+import com.dongeul.pagingsample.model.SampleModel
+import com.dongeul.pagingsample.viewmodel.PagingViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FeedDetailFragment : Fragment() {

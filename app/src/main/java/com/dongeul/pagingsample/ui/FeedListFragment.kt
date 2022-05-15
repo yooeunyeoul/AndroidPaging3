@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample
+package com.dongeul.pagingsample.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -11,12 +11,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.SimpleItemAnimator
-import com.dongeul.pagingsample.data.FeedType
-import com.dongeul.pagingsample.data.PagingAdapter
-import com.dongeul.pagingsample.data.SampleModel
 import com.dongeul.pagingsample.databinding.FragmentFeedListBinding
+import com.dongeul.pagingsample.model.FeedType
+import com.dongeul.pagingsample.model.SampleModel
+import com.dongeul.pagingsample.viewmodel.PagingViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample
+package com.dongeul.pagingsample.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

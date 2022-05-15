@@ -6,7 +6,7 @@
     <data>
         <variable
             name="entity"
-            type="com.dongeul.pagingsample.data.SampleModel.Data" />
+            type="com.dongeul.pagingsample.model.SampleModel.Data" />
 
         <import type="android.view.View"/>
 

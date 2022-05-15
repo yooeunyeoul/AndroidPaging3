@@ -1,8 +1,8 @@
-package com.dongeul.pagingsample
+package com.dongeul.pagingsample.network
 
-import com.dongeul.pagingsample.data.Comment
-import com.dongeul.pagingsample.data.PagingSample
-import com.dongeul.pagingsample.data.SampleModel
+import com.dongeul.pagingsample.model.Comment
+import com.dongeul.pagingsample.model.SampleModel
+import com.dongeul.pagingsample.model.PagingSample
 import javax.inject.Inject
 
 class SampleBackendService @Inject constructor() {

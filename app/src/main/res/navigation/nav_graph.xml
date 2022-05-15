@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/feedListFragment"
-        android:name="com.dongeul.pagingsample.FeedListFragment"
+        android:name="com.dongeul.pagingsample.ui.FeedListFragment"
         android:label="@string/feedHome"
         tools:layout="@layout/fragment_feed_list">
         <action
@@ -19,18 +19,18 @@
             app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="data"
-            app:argType="com.dongeul.pagingsample.data.SampleModel"
+            app:argType="com.dongeul.pagingsample.model.SampleModel"
             />
     </fragment>
 
     <fragment
         android:id="@+id/feedDetailFragment"
-        android:name="com.dongeul.pagingsample.FeedDetailFragment"
+        android:name="com.dongeul.pagingsample.ui.FeedDetailFragment"
         android:label="@string/feedDetail"
         tools:layout="@layout/fragment_feed_detail">
         <argument
             android:name="data"
-            app:argType="com.dongeul.pagingsample.data.SampleModel" />
+            app:argType="com.dongeul.pagingsample.model.SampleModel" />
     </fragment>
 
 </navigation>

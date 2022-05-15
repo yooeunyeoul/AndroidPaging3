@@ -1,5 +1,4 @@
-package com.dongeul.pagingsample.data
-
+package com.dongeul.pagingsample.model
 import java.io.Serializable
 
 

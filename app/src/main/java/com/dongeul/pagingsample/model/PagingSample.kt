@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample.data
+package com.dongeul.pagingsample.model
 
 class PagingSample(
     val data : List<SampleModel>,

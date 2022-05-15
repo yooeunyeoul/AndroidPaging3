@@ -1,8 +1,9 @@
-package com.dongeul.pagingsample
+package com.dongeul.pagingsample.data
 
+import com.dongeul.pagingsample.model.SampleModel
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.dongeul.pagingsample.data.SampleModel
+import com.dongeul.pagingsample.network.SampleBackendService
 import java.lang.Exception
 import javax.inject.Inject
 

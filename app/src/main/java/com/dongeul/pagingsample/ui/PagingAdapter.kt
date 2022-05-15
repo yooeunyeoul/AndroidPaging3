@@ -1,17 +1,13 @@
-package com.dongeul.pagingsample.data
+package com.dongeul.pagingsample.ui
 
+import com.dongeul.pagingsample.model.SampleModel
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.dongeul.pagingsample.FeedListFragment
-import com.dongeul.pagingsample.FeedListFragmentDirections
-import com.dongeul.pagingsample.FeedListFragment_GeneratedInjector
 import com.dongeul.pagingsample.databinding.ItemAdBinding
 import com.dongeul.pagingsample.databinding.ItemFeedBinding
-import com.dongeul.pagingsample.databinding.ItemSampleHeaderBinding
 import java.lang.Exception
 
 class PagingAdapter : PagingDataAdapter<SampleModel, RecyclerView.ViewHolder>(diffcallback) {
