@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.dongeul.mysamplelibrary.ToastID
 import com.dongeul.pagingsample.R
 import com.dongeul.pagingsample.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             navController = navHostFragment.findNavController()
             setupActionBarWithNavController(navController)
         }
+        ToastID().testToast(baseContext)
 
     }
 }
