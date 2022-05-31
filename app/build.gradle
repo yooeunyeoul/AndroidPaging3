@@ -83,5 +83,8 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.1.1")
     implementation("androidx.compose.runtime:runtime-rxjava2:1.1.1")
 
+    //Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 
 }
