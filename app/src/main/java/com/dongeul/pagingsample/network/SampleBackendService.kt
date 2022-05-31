@@ -68,4 +68,12 @@ class SampleBackendService @Inject constructor() {
         )
     }
 
+    fun getChartData(count: Int): List<Float> {
+        val list = mutableListOf<Float>()
+        for (i in 0..count) {
+            val floatVal: Float = ((Math.random())).toFloat()
+            list.add(floatVal)
+        }
+        return list
+    }
 }
