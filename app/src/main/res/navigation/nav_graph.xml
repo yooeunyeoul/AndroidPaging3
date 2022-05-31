@@ -33,4 +33,18 @@
             app:argType="com.dongeul.pagingsample.model.SampleModel" />
     </fragment>
 
+    <fragment
+        android:id="@+id/composeFragment"
+        android:name="com.dongeul.pagingsample.ui.fragment.ComposeFragment"
+        android:label="Compose"
+        tools:layout="@layout/fragment_compose">
+    </fragment>
+
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="com.dongeul.pagingsample.ui.fragment.ChartFragment"
+        android:label="Compose"
+        tools:layout="@layout/fragment_chart">
+    </fragment>
+
 </navigation>

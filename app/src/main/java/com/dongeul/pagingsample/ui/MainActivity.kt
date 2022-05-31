@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.dongeul.mysamplelibrary.ToastID
 import com.dongeul.pagingsample.R
 import com.dongeul.pagingsample.databinding.ActivityMainBinding
@@ -27,11 +28,10 @@ class MainActivity : AppCompatActivity() {
             val navHostFragment =
                 supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
             navController = navHostFragment.findNavController()
+            binding.bottomNavigationView.setupWithNavController(navController)
             setupActionBarWithNavController(navController)
         }
         ToastID().testToast(baseContext)
-
-
 
     }
 }
