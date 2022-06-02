@@ -3,6 +3,8 @@ package com.dongeul.pagingsample.network
 import com.dongeul.pagingsample.model.Comment
 import com.dongeul.pagingsample.model.SampleModel
 import com.dongeul.pagingsample.model.PagingSample
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class SampleBackendService @Inject constructor() {

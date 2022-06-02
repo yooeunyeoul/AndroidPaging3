@@ -1,13 +1,12 @@
 package com.dongeul.pagingsample.repository
 
-import com.dongeul.pagingsample.model.SampleModel
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.dongeul.pagingsample.network.SampleBackendService
 import com.dongeul.pagingsample.data.SamplePagingSource
+import com.dongeul.pagingsample.model.SampleModel
+import com.dongeul.pagingsample.network.SampleBackendService
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
 import javax.inject.Inject
 
 class PagingRepository @Inject constructor(
@@ -19,7 +18,4 @@ class PagingRepository @Inject constructor(
         }.flow
     }
 
-    fun getChartData(count:Int) : Flow<Float>{
-        return service.getChartData(count).asFlow()
-    }
 }

@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample.ui
+package com.dongeul.pagingsample.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

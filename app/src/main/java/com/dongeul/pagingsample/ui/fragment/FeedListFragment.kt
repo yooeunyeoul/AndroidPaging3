@@ -1,4 +1,4 @@
-package com.dongeul.pagingsample.ui
+package com.dongeul.pagingsample.ui.fragment
 
 import android.content.Intent
 import android.net.Uri
@@ -12,8 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.dongeul.pagingsample.databinding.FragmentFeedListBinding
-import com.dongeul.pagingsample.model.FeedType
 import com.dongeul.pagingsample.model.SampleModel
+import com.dongeul.pagingsample.ui.PagingAdapter
 import com.dongeul.pagingsample.viewmodel.PagingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -27,14 +27,14 @@ class FeedListFragment : Fragment() {
     private val pagingAdapter: PagingAdapter by lazy {
         PagingAdapter().apply {
             listener = {
-                when (it.type) {
-                    FeedType.AD->{
+                when (it) {
+                    is SampleModel.Ad->{
                         Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com")).run {
                             startActivity(this)
                         }
                     }
-                    FeedType.DATA->{
-                        val data = it as SampleModel.Data
+                    is SampleModel.Data->{
+                        val data = it
                         FeedListFragmentDirections.actionHomeFragmentToDetailFragment(data).run {
                             findNavController().navigate(this)
                         }

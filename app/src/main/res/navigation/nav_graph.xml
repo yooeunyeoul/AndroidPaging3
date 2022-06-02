@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/feedListFragment"
-        android:name="com.dongeul.pagingsample.ui.FeedListFragment"
+        android:name="com.dongeul.pagingsample.ui.fragment.FeedListFragment"
         android:label="@string/feedHome"
         tools:layout="@layout/fragment_feed_list">
         <action
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/feedDetailFragment"
-        android:name="com.dongeul.pagingsample.ui.FeedDetailFragment"
+        android:name="com.dongeul.pagingsample.ui.fragment.FeedDetailFragment"
         android:label="@string/feedDetail"
         tools:layout="@layout/fragment_feed_detail">
         <argument
