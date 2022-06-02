@@ -2,7 +2,7 @@ package com.dongeul.pagingsample.model
 import java.io.Serializable
 
 
-sealed class SampleModel(val type: FeedType) :Serializable {
+sealed class SampleModel() :Serializable {
     data class Data(
         val idx : Int,
         val existImage: Boolean=false,
@@ -11,13 +11,9 @@ sealed class SampleModel(val type: FeedType) :Serializable {
         var isLike: Boolean = false,
         var commentList: List<Comment>,
         val commentUser: String?=null
-    ) : SampleModel(FeedType.DATA)
+    ):SampleModel()
 
-    data class Ad(val title: String) : SampleModel(FeedType.AD)
-}
-
-enum class FeedType {
-    AD, DATA
+    data class Ad(val title: String):SampleModel()
 }
 
 data class Comment(val commentUser:String, val comment:String?)
